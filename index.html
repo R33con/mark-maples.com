@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +7,9 @@
     <title>Mark Maples - Product Leader Portfolio</title>
     <meta property="og:title" content="Mark Maples - Product Leader Portfolio">
     <meta property="og:description" content="Product Leader with Strategic Programs & Operations Experience">
-    <meta property="og:image" content="https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=modern minimalist product manager logo&w=200&h=200&style=professional">
+    <meta property="og:image" content="https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=modern%20minimalist%20product%20manager%20logo&w=200&h=200&style=professional">
     <meta property="og:type" content="website">
-    <link rel="icon" href="https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=minimalist product manager icon&w=32&h=32&style=professional">
+    <link rel="icon" href="https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=minimalist%20product%20manager%20icon&w=32&h=32&style=professional">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="/chat/cdn/animate.min.css" rel="stylesheet">
     <script src="/chat/cdn/papaparse.min.js"></script>
@@ -51,166 +52,84 @@
             --text-dark: #212529;
         }
 
-        .bg-primary {
-            background-color: var(--primary-color);
-        }
+        .bg-primary { background-color: var(--primary-color); }
+        .bg-primary-dark { background-color: var(--primary-dark); }
+        .bg-primary-light { background-color: var(--primary-light); }
+        .bg-accent { background-color: var(--accent-color); }
+        .bg-light-blue { background-color: var(--bg-light); }
+        .text-primary { color: var(--primary-color); }
+        .text-accent { color: var(--accent-color); }
+        .border-primary { border-color: var(--primary-color); }
+        .hover-bg-primary-dark:hover { background-color: var(--primary-dark); }
+        .hover-text-primary-light:hover { color: var(--primary-light); }
+        .hover-text-primary-dark:hover { color: var(--primary-dark); }
 
-        .bg-primary-dark {
-            background-color: var(--primary-dark);
-        }
+        .profile-header { text-align: left; }
+        .name { font-size: 3.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .tagline { font-size: 1.75rem; font-weight: 500; margin-bottom: 1rem; }
+        .current-role { font-size: 1.25rem; }
 
-        .bg-primary-light {
-            background-color: var(--primary-light);
-        }
-        
-        .bg-accent {
-            background-color: var(--accent-color);
-        }
-        
-        .bg-light-blue {
-            background-color: var(--bg-light);
-        }
-
-        .text-primary {
-            color: var(--primary-color);
-        }
-
-        .text-accent {
-            color: var(--accent-color);
-        }
-
-        .border-primary {
-            border-color: var(--primary-color);
-        }
-
-        .hover-bg-primary-dark:hover {
-            background-color: var(--primary-dark);
-        }
-
-        .profile-header {
-            text-align: left;
-        }
-
-        .name {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .tagline {
-            font-size: 1.75rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .current-role {
-            font-size: 1.25rem;
-        }
-        
         /* Animation classes */
         .hidden-element {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-        
         .visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .company-logo {
-            width: 120px;
-            height: 120px;
-            object-fit: contain;
-            border-radius: 50%;
-            box-shadow: 0 10px 25px rgba(0, 2, 43, 0.2);
-            padding: 10px;
-            transition: all 0.3s ease;
-            margin: 0 auto;
-        }
-        
         .logo-container {
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        
-        .logo-container:hover .company-logo {
+        .logo-container:hover .logo-circle {
             transform: scale(1.05);
             box-shadow: 0 15px 30px rgba(0, 2, 43, 0.3);
         }
 
-        /* Amazon logo - dark blue background */
-        .amazon-logo {
-            background-color: #00022b;
-        }
-        
-        /* Uber and Deloitte logos - black background */
-        .uber-logo, .deloitte-logo {
-            background-color: #000000;
-        }
-
-        .work-item {
-            transition: all 0.3s ease;
+        .work-item, .writing-post {
+            transition: all 0.3s ease, opacity 0.8s ease-out, transform 0.8s ease-out;
             opacity: 0;
             transform: translateY(30px);
         }
-
-        .work-item.visible {
+        .work-item.visible, .writing-post.visible {
             opacity: 1;
             transform: translateY(0);
         }
+        .work-item:hover { transform: translateY(-5px); }
 
-        .work-item:hover {
-            transform: translateY(-5px);
-        }
-        
         /* Text animation */
-        .text-reveal {
-            overflow: hidden;
-            position: relative;
-        }
-        
+        .text-reveal { overflow: hidden; position: relative; }
         .text-reveal-content {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 1s ease, transform 1s ease;
         }
-        
         .text-reveal.visible .text-reveal-content {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         /* Image fade in */
         .image-fade {
             opacity: 0;
             transition: opacity 1.2s ease-in-out;
         }
-        
-        .image-fade.visible {
-            opacity: 1;
-        }
-        
-        /* Staggered animation for work items */
-        .work-item:nth-child(1) {
-            transition-delay: 0.1s;
-        }
-        
-        .work-item:nth-child(2) {
-            transition-delay: 0.3s;
-        }
-        
-        .work-item:nth-child(3) {
-            transition-delay: 0.5s;
-        }
-        
-        /* Common styles for all logo circles */
+        .image-fade.visible { opacity: 1; }
+
+        /* Staggered animation */
+        .work-item:nth-child(1), .writing-post:nth-child(1) { transition-delay: 0.1s; }
+        .work-item:nth-child(2), .writing-post:nth-child(2) { transition-delay: 0.3s; }
+        .work-item:nth-child(3), .writing-post:nth-child(3) { transition-delay: 0.5s; }
+
+        /* Logo Circles */
         .logo-circle {
             width: 120px;
             height: 120px;
-            border-radius: 70%;
+            border-radius: 50%; /* Changed back to 50% for perfect circle */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -219,41 +138,12 @@
             transition: all 0.3s ease;
             margin: 0 auto;
         }
-        
-        .logo-circle:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(0, 2, 43, 0.3);
-        }
-        
-        /* Amazon Logo */
-        .amazon-logo-circle {
-            background-color: #00022b;
-        }
-
-        .amazon-logo-circle img {
-            width: 196%;
-            height: auto;
-            object-fit: contain;
-            transform: scale(1.485) translateX(-2%);
-        }
-        
-        /* Deloitte Logo */
-        .deloitte-logo-circle {
-            background-color: #000000;
-        }
-        .deloitte-logo-circle img {
-            width: 85%;
-            height: auto;
-        }
-        
-        /* Uber Logo */
-        .uber-logo-circle {
-            background-color: #000000;
-        }
-        .uber-logo-circle img {
-            width: 85%;
-            height: auto;
-        }
+        .amazon-logo-circle { background-color: #00022b; }
+        .amazon-logo-circle img { width: 196%; height: auto; object-fit: contain; transform: scale(1.485) translateX(-2%); }
+        .deloitte-logo-circle { background-color: #000000; }
+        .deloitte-logo-circle img { width: 85%; height: auto; }
+        .uber-logo-circle { background-color: #000000; }
+        .uber-logo-circle img { width: 85%; height: auto; }
     </style>
     <script>
         tailwind.config = {
@@ -283,6 +173,7 @@
             <div class="hidden md:flex space-x-8">
                 <a href="#about" class="hover:text-primary transition-colors">About</a>
                 <a href="#work-history" class="hover:text-primary transition-colors">Work History</a>
+                <a href="#writing" class="hover:text-primary transition-colors">Writing</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden focus:outline-none">
                 <i class="fas fa-bars text-2xl"></i>
@@ -293,21 +184,25 @@
             <div class="container mx-auto px-6 py-3 flex flex-col space-y-4">
                 <a href="#about" class="hover:text-primary transition-colors">About</a>
                 <a href="#work-history" class="hover:text-primary transition-colors">Work History</a>
+                <a href="#writing" class="hover:text-primary transition-colors">Writing</a>
             </div>
         </div>
     </nav>
 
+
     <!-- Hero Section -->
+
     <header style="background-color: #00022b;" class="min-h-screen flex items-center">
         <div class="container mx-auto px-6 py-24 md:py-32">
             <div class="profile-header text-left">
                 <h1 class="name text-white">Mark Maples</h1>
                 <h2 class="tagline text-white">Builder at heart, strategist by training.</h2>
-                <p class="current-role text-white">Currently a product leader for Amazon's post-purchase customer experience.</p>
+                <p class="current-role text-white mt-4 max-w-xl">Currently a Product Leader @ Amazon, owning and improving the post-purchase Your Orders pages.</p>
             </div>
         </div>
     </header>
-    
+        
+
     <!-- About Section -->
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-6">
@@ -317,29 +212,30 @@
                 </div>
                 <div class="md:w-2/3 md:pl-12 text-reveal">
                     <div class="text-reveal-content">
-                        <p class="text-lg mb-8">
-                            Hi, I'm Mark. I'm a Product Manager based in San Francisco. 
-
+                         <h2 class="text-3xl font-bold mb-6 text-primary">About Me</h2>
+                        <p class="text-lg mb-8 text-gray-700">
+                            Hi, I'm Mark. I'm a Product Manager based in San Francisco.
                             I turn customer problems into simple product solutions that work. I pull from my management consulting and strategic ops experiences to move quickly and deliver value.
                         </p>
                         <div class="flex flex-wrap gap-4">
-                            <!-- LinkedIn link removed from here -->
+                            <!-- LinkedIn link removed -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+        
 
     <!-- Work History Section -->
-    <section id="work-history" class="py-20" style="background-color: #daeaf7;">
+    <section id="work-history" class="py-20 bg-light-blue">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center" style="color: #00022b;">Select Work History</h2>
+            <h2 class="text-3xl font-bold mb-12 text-center text-primary">Select Work History</h2>
             <div class="space-y-16" id="work-history-container">
                 <!-- Amazon -->
                 <div class="work-item">
-                    <div class="flex flex-col md:flex-row items-center">
-                        <div class="md:w-1/4 mb-6 md:mb-0">
+                    <div class="flex flex-col md:flex-row items-center gap-8">
+                        <div class="md:w-1/4 flex-shrink-0">
                             <div class="logo-container">
                                 <div class="logo-circle amazon-logo-circle">
                                     <img src="https://res.cloudinary.com/dimqqmfx6/image/upload/v1741666625/u0311041703_amazon5_wpzp44.png" alt="Amazon Logo">
@@ -347,8 +243,9 @@
                             </div>
                         </div>
                         <div class="md:w-3/4">
-                            <h3 class="text-xl font-bold mb-2" style="color: #00022b;">Amazon</h3>
-                            <p class="text-gray-600 mb-4">
+                            <h3 class="text-xl font-bold mb-2 text-primary">Amazon</h3>
+                            <p class="text-gray-700 mb-1"><span class="font-semibold">Role:</span> Product Leader, Post-Purchase Experience</p>
+                            <p class="text-gray-600">
                                 I own the Your Orders and Order Details post-purchase pages at Amazon. I help reimagine how millions of people stay informed, take action, and feel confident when receiving and managing their orders. I simplify complexity at scale, and turn everyday interactions into moments of clarity, trust, and delight.
                             </p>
                         </div>
@@ -357,8 +254,8 @@
 
                 <!-- Uber -->
                 <div class="work-item">
-                    <div class="flex flex-col md:flex-row items-center">
-                        <div class="md:w-1/4 mb-6 md:mb-0">
+                    <div class="flex flex-col md:flex-row items-center gap-8">
+                        <div class="md:w-1/4 flex-shrink-0">
                             <div class="logo-container">
                                 <div class="logo-circle uber-logo-circle">
                                     <img src="https://res.cloudinary.com/dimqqmfx6/image/upload/v1741398623/u0308014708_uberlogo_v5gocx.png" alt="Uber Logo">
@@ -366,8 +263,9 @@
                             </div>
                         </div>
                         <div class="md:w-3/4">
-                            <h3 class="text-xl font-bold mb-2" style="color: #00022b;">Uber</h3>
-                            <p class="text-gray-600 mb-4">
+                            <h3 class="text-xl font-bold mb-2 text-primary">Uber</h3>
+                             <p class="text-gray-700 mb-1"><span class="font-semibold">Role:</span> Strategy & Operations, Customer Experience</p>
+                            <p class="text-gray-600">
                                 Led customer insights and support strategy for Uber's innovation businesses (U4B, Freight, JUMP); influenced product roadmaps with data-driven CX insights and launched global support programs for Uber's largest enterprise clients.
                             </p>
                         </div>
@@ -376,8 +274,8 @@
 
                 <!-- Deloitte -->
                 <div class="work-item">
-                    <div class="flex flex-col md:flex-row items-center">
-                        <div class="md:w-1/4 mb-6 md:mb-0">
+                    <div class="flex flex-col md:flex-row items-center gap-8">
+                        <div class="md:w-1/4 flex-shrink-0">
                             <div class="logo-container">
                                 <div class="logo-circle deloitte-logo-circle">
                                     <img src="https://res.cloudinary.com/dimqqmfx6/image/upload/v1741398623/u0308014630_deloitte2_lhje0s.png" alt="Deloitte Logo">
@@ -385,8 +283,9 @@
                             </div>
                         </div>
                         <div class="md:w-3/4">
-                            <h3 class="text-xl font-bold mb-2" style="color: #00022b;">Deloitte</h3>
-                            <p class="text-gray-600 mb-4">
+                            <h3 class="text-xl font-bold mb-2 text-primary">Deloitte</h3>
+                            <p class="text-gray-700 mb-1"><span class="font-semibold">Role:</span> Management Consultant, Healthcare</p>
+                            <p class="text-gray-600">
                                 Drove strategy and process transformation for large health insurers and public programs; launched agile frameworks, streamlined compliance, and enabled tech investments impacting 750K+ members.
                             </p>
                         </div>
@@ -396,25 +295,53 @@
         </div>
     </section>
 
+    <!-- Writing & AI Projects Section -->
+    <section id="writing" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-4 text-center text-primary">Writing & AI Projects</h2>
+            <p class="text-lg text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+                While I write extensively for my role at Amazon, this space is dedicated to personal intellectual development, exploring ideas, and sharing generative AI projects I'm building for fun.
+            </p>
+            <div id="writing-posts-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Post 1 -->
+                <div class="writing-post bg-light-blue p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
+                     <h3 class="text-xl font-bold mb-3 text-primary">From Prompt to Page: My Gen AI Website Adventure</h3>
+                     <p class="text-gray-700 mb-4 flex-grow">
+                         Exploring the journey of using generative AI tools to conceptualize, design, and code this personal website from the ground up. A dive into prompt engineering, iteration, and the surprising capabilities (and quirks) of AI-assisted development.
+                     </p>
+                     <a href="#" class="text-accent hover:text-primary-dark font-semibold mt-auto self-start">Read More <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                </div>
+                <!-- Add more posts here in the future -->
+                 <div class="writing-post bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
+                     <i class="fas fa-feather-alt text-4xl text-gray-400 mb-3"></i>
+                     <h3 class="text-lg font-semibold mb-2 text-gray-500">More Posts Coming Soon</h3>
+                     <p class="text-gray-500 text-center text-sm">Check back later for more articles and project showcases.</p>
+                 </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer style="background-color: #00022b;" class="text-white py-8">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
                     <a href="#" class="text-xl font-bold">Mark Maples</a>
                     <div class="mt-2 text-gray-300">
-                        <a href="https://www.linkedin.com/in/mark-maples-5b9bb813/" target="_blank" class="flex items-center hover:text-primary-light">
+                        <a href="https://www.linkedin.com/in/mark-maples-5b9bb813/" target="_blank" class="inline-flex items-center hover:text-primary-light transition-colors">
                             <i class="fab fa-linkedin mr-2"></i> LinkedIn
                         </a>
                     </div>
                 </div>
-                <div class="flex flex-col md:flex-row md:space-x-8">
-                    <a href="#about" class="hover:text-primary-light mb-2 md:mb-0">About</a>
-                    <a href="#work-history" class="hover:text-primary-light mb-2 md:mb-0">Work History</a>
+                <div class="flex flex-col md:flex-row md:space-x-8 text-center md:text-right">
+                    <a href="#about" class="hover:text-primary-light mb-2 md:mb-0 transition-colors">About</a>
+                    <a href="#work-history" class="hover:text-primary-light mb-2 md:mb-0 transition-colors">Work History</a>
+                    <a href="#writing" class="hover:text-primary-light mb-2 md:mb-0 transition-colors">Writing</a>
                 </div>
             </div>
             <hr class="border-gray-700 my-4">
-            <div class="text-center">
+            <div class="text-center text-gray-400 text-sm">
                 <p>© <span id="current-year"></span> Mark Maples. All rights reserved.</p>
             </div>
         </div>
@@ -424,65 +351,77 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Set current year in footer
             document.getElementById('current-year').textContent = new Date().getFullYear();
-            
+
             // Mobile menu toggle
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            
+            const mobileMenuIcon = mobileMenuButton.querySelector('i');
+
             mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
+                const isHidden = mobileMenu.classList.toggle('hidden');
+                mobileMenuIcon.classList.toggle('fa-bars', isHidden);
+                mobileMenuIcon.classList.toggle('fa-times', !isHidden);
             });
-            
+
             // Close mobile menu when clicking a link
             const mobileLinks = mobileMenu.querySelectorAll('a');
             mobileLinks.forEach(link => {
                 link.addEventListener('click', function() {
                     mobileMenu.classList.add('hidden');
+                    mobileMenuIcon.classList.remove('fa-times');
+                    mobileMenuIcon.classList.add('fa-bars');
                 });
             });
-            
+
             // Handle image loading errors
             const images = document.querySelectorAll('img');
             images.forEach(img => {
                 img.onerror = function() {
-                    this.src = 'https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=abstract placeholder&w=300&h=300&style=professional';
+                    // Attempt to generate a placeholder based on alt text if available
+                    const promptText = this.alt ? `placeholder for ${this.alt}` : 'abstract placeholder image';
+                    const width = this.width > 0 ? this.width : 100; // Use actual width or default
+                    const height = this.height > 0 ? this.height : 100; // Use actual height or default
+                    this.src = `https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=${encodeURIComponent(promptText)}&w=${width}&h=${height}&style=professional`;
+                    console.warn(`Image failed to load: ${this.src}. Replaced with placeholder.`);
+                    this.onerror = null; // Prevent infinite loop if placeholder fails
                 };
             });
-            
-            // Scroll animation for about section
-            const profileImage = document.querySelector('.image-fade');
-            const textReveal = document.querySelector('.text-reveal');
-            
-            const aboutObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, {
-                threshold: 0.2,
-                rootMargin: "0px 0px -50px 0px"
-            });
-            
-            aboutObserver.observe(profileImage);
-            aboutObserver.observe(textReveal);
-            
-            // Scroll animation for work history items
-            const workItems = document.querySelectorAll('.work-item');
-            
-            const workObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, {
+
+            // Intersection Observer Setup
+            const createObserver = (options) => {
+                return new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, options);
+            };
+
+            const defaultObserverOptions = {
                 threshold: 0.1,
                 rootMargin: "0px 0px -50px 0px"
-            });
-            
+            };
+
+            // Observe About Section elements
+            const aboutObserver = createObserver({ threshold: 0.2, rootMargin: "0px 0px -50px 0px" });
+            const profileImage = document.querySelector('.image-fade');
+            const textReveal = document.querySelector('.text-reveal');
+            if (profileImage) aboutObserver.observe(profileImage);
+            if (textReveal) aboutObserver.observe(textReveal);
+
+            // Observe Work History items
+            const workObserver = createObserver(defaultObserverOptions);
+            const workItems = document.querySelectorAll('.work-item');
             workItems.forEach(item => workObserver.observe(item));
+
+            // Observe Writing posts
+            const writingObserver = createObserver(defaultObserverOptions);
+            const writingPosts = document.querySelectorAll('.writing-post');
+            writingPosts.forEach(post => writingObserver.observe(post));
+
         });
     </script>
 </body>
 </html>
+        
