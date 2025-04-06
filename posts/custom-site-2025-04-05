@@ -7,10 +7,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Update Title for the specific post -->
-    <title>From Prompt to Page: this site is pure custom code - Mark Maples</title>
+    <title>From Zero to Prompt to Page - Mark Maples</title>
     <!-- Keep other meta tags, icons, CSS links consistent with index.html -->
-    <meta property="og:title" content="From Prompt to Page: this site is pure custom code - Mark Maples">
-    <meta property="og:description" content="Exploring the journey of using generative AI tools to build a personal website.">
+    <meta property="og:title" content="From Zero to Prompt to Page - Mark Maples">
+    <meta property="og:description" content="This website is pure custom genAI created code.">
     <!-- You might want a specific OG image for the post, or use the main one -->
     <meta property="og:image" content="https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=modern%20minimalist%20product%20manager%20logo&w=200&h=200&style=professional">
     <meta property="og:type" content="article"> <!-- Change type to article -->
@@ -193,7 +193,7 @@
 
     <main class="post-content-area container mx-auto px-6 max-w-3xl">
         <!-- Post Title -->
-        <h1>From Prompt to Page: this site is pure custom code</h1>
+        <h1>From Zero to Prompt to Page</h1>
 
         <!-- Optional: Author/Date Line -->
         <!-- <p class="text-gray-500 text-sm mb-8">By Mark Maples | Published: March 31, 2025</p> -->
