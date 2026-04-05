@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My (Way Too Late) Thoughts on Piketty's Capital in the 21st Century - Mark Maples</title>
+    <meta property="og:title" content="My (Way Too Late) Thoughts on Piketty's Capital in the 21st Century - Mark Maples">
+    <meta property="og:description" content="After finally working through Piketty's exhaustive historical survey 10 years later, here are my thoughts nobody asked for.">
+    <meta property="og:image" content="https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=modern%20minimalist%20product%20manager%20logo&w=200&h=200&style=professional">
+    <meta property="og:type" content="article">
+    <link rel="icon" href="https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=modern%20minimalist%20M%20letter%20logo%20dark%20blue%20white&w=64&h=64&style=professional">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/chat/cdn/animate.min.css" rel="stylesheet">
+    <script src="/chat/cdn/papaparse.min.js"></script>
+    <link href="/chat/cdn/all.min.css" rel="stylesheet">
+    <script src="/chat/cdn/all.min.js" crossorigin></script>
+    <style>
+        @font-face {
+            font-family: 'Font Awesome 6 Free';
+            font-path: '/chat/webfonts/fa-regular-400';
+            src: url('/chat/webfonts/fa-regular-400.woff2') format('woff2'),
+                 url('/chat/webfonts/fa-regular-400.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Font Awesome 6 Free';
+            font-path: '/chat/webfonts/fa-solid-900';
+            src: url('/chat/webfonts/fa-solid-900.woff2') format('woff2'),
+                 url('/chat/webfonts/fa-solid-900.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Font Awesome 6 Brands';
+            font-path: '/chat/webfonts/fa-brands-400';
+            src: url('/chat/webfonts/fa-brands-400.woff2') format('woff2'),
+                 url('/chat/webfonts/fa-brands-400.ttf') format('truetype');
+        }
+        html { scroll-behavior: smooth; }
+        :root {
+            --primary-color: #00022b; --primary-dark: #010e54; --primary-light: #4fa5d8;
+            --accent-color: #0855b1; --bg-light: #daeaf7; --text-light: #ffffff; --text-dark: #212529;
+        }
+        .bg-primary { background-color: var(--primary-color); } .bg-primary-dark { background-color: var(--primary-dark); }
+        .bg-primary-light { background-color: var(--primary-light); } .bg-accent { background-color: var(--accent-color); }
+        .bg-light-blue { background-color: var(--bg-light); } .text-primary { color: var(--primary-color); }
+        .text-accent { color: var(--accent-color); } .border-primary { border-color: var(--primary-color); }
+        .hover-bg-primary-dark:hover { background-color: var(--primary-dark); }
+        .hover-text-primary-light:hover { color: var(--primary-light); } .hover-text-primary-dark:hover { color: var(--primary-dark); }
+        .profile-header { text-align: left; } .name { font-size: 3.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .tagline { font-size: 1.75rem; font-weight: 500; margin-bottom: 1rem; }
+        .current-role { font-size: 1.25rem; margin-top: 1.5rem; }
+        .hidden-element { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .visible { opacity: 1; transform: translateY(0); }
+        .logo-container { display: flex; justify-content: center; align-items: center; }
+        .logo-container:hover .logo-circle { transform: scale(1.05); box-shadow: 0 15px 30px rgba(0, 2, 43, 0.3); }
+        .work-item, .writing-post { transition: all 0.3s ease, opacity 0.8s ease-out, transform 0.8s ease-out; opacity: 0; transform: translateY(30px); }
+        .work-item.visible, .writing-post.visible { opacity: 1; transform: translateY(0); }
+        .work-item:hover { transform: translateY(-5px); }
+        .text-reveal { overflow: hidden; position: relative; }
+        .text-reveal-content { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; }
+        .text-reveal.visible .text-reveal-content { opacity: 1; transform: translateY(0); }
+        .image-fade { opacity: 0; transition: opacity 1.2s ease-in-out; } .image-fade.visible { opacity: 1; }
+        .work-item:nth-child(1), .writing-post:nth-child(1) { transition-delay: 0.1s; }
+        .work-item:nth-child(2), .writing-post:nth-child(2) { transition-delay: 0.3s; }
+        .work-item:nth-child(3), .writing-post:nth-child(3) { transition-delay: 0.5s; }
+        .logo-circle { width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 10px 25px rgba(0, 2, 43, 0.2); transition: all 0.3s ease; margin: 0 auto; }
+
+        .post-content-area {
+            padding-top: 80px;
+            padding-bottom: 60px;
+        }
+        .post-content-area h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+        .post-content-area h2 {
+            font-size: 1.75rem;
+            font-weight: bold;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+        .post-content-area p {
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+            color: var(--text-dark);
+            font-size: 1.2rem;
+        }
+        .post-content-area a {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        .post-content-area a:hover {
+            color: var(--primary-dark);
+        }
+        .post-content-area ul, .post-content-area ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.25rem;
+            list-style: revert;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00022b',
+                        'primary-dark': '#010e54',
+                        'primary-light': '#4fa5d8',
+                        accent: '#0855b1',
+                        'bg-light': '#daeaf7',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-light-blue text-gray-800">
+
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="../index.html" class="text-2xl font-bold text-gray-800">
+                <span class="flex items-center">
+                    <span>Mark Maples</span>
+                </span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="../index.html#about" class="hover:text-primary transition-colors">About</a>
+                <a href="../index.html#work-history" class="hover:text-primary transition-colors">Work History</a>
+                <a href="../index.html#writing" class="hover:text-primary transition-colors">Writing</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white w-full">
+            <div class="container mx-auto px-6 py-3 flex flex-col space-y-4">
+                <a href="../index.html#about" class="hover:text-primary transition-colors">About</a>
+                <a href="../index.html#work-history" class="hover:text-primary transition-colors">Work History</a>
+                <a href="../index.html#writing" class="hover:text-primary transition-colors">Writing</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="post-content-area container mx-auto px-6 max-w-3xl">
+
+        <h1>My (Way Too Late) Thoughts (That Nobody Asked For) on Piketty's Capital in the 21st Century</h1>
+
+        <p>
+            Thomas Piketty's <em>Capital in the 21st Century</em> came out when I was studying economics at SAIS and dominated the zeitgeist. At the time I had strong FOMO that I was missing mandatory reading. After finally working through Piketty's exhaustive historical survey 10 years later, here are my thoughts nobody asked for:
+        </p>
+
+        <h2>This is an important topic, and will continue to be</h2>
+        <p>
+            Piketty popularized an economic relationship and helped us develop some economic language to understand inequality: when the rate of return on capital (r) exceeds economic growth (g), wealth concentrates. When capital compounds faster than wages grow, people who already have wealth tend to outpace everyone else. This drives up inequality, especially across generational time horizons and when returns are reinvested. It is economic math, but is an important framework for understanding modern wages and inequality because it highlights how structural forces shape today's outcomes. It explains why inequality feels structural rather than cyclical and why it continues to increase.
+        </p>
+        <p>
+            His real contribution was assembling three centuries of tax records, estate data, and national accounts across more than twenty countries to show the real world implication of r &gt; g and to give this economic principle real-world data grounding. For me, this is the single best way to think of Piketty and this work: he's an economic historian. He explains why the capital-to-income ratio matters, how it affects inequality, what it has been since historical records were available, and why it was historically low in the early twentieth century but rose starting in the 70's. Hint: low capital-to-income levels and inequality were not the result of good policy, but because the catastrophic destruction and upheaval of two world wars wiped out almost unimaginable amounts of physical capital.
+        </p>
+        <p>
+            As a result, my main real takeaway was how extreme the shocks needed to be in order for labor's share of income to be meaningful. Ultimately, this left me mildly hopeless and somewhat chagrinned with resignation about the long-term outlook for the capital-to-income ratio and inequality overall.
+        </p>
+
+        <h2>Interesting read</h2>
+        <p>
+            While the book is rich in data and the historical narrative, the use of literary references to bolster the argument and ground the reader in the economic setting of the 19th century was interesting, and puzzling. Piketty extensively explains the historical context and nuances of Austen's inheritance plots and Balzac's calculations of Rastignac's prospects for marrying rich versus growing wealth through a career of labor. While these were interesting literary and social anchoring to help the reader understand what zero inflation meant practically in those economic contexts, the length of these references ended up turning parts of the book into a slog.
+        </p>
+
+        <h2>Of course Marx is referenced</h2>
+        <p>
+            But I was confused by one of Piketty's interpretations of Marx. It felt like an example of professional deformation, where Piketty interpreted Marx's writing through the tight lens shaped and allowed by his training and vocation. Piketty interprets Marx's line about capitalists "digging their own grave" as a comment about diminishing marginal returns, where inequality becomes so extreme that the system collapses because capital returns fall to zero.
+        </p>
+        <p>
+            It is surprising to think Piketty might have misread Marx, especially after positioning his book as a continuation of Marx's project. My read (which could be wrong, but I think is backed by others like David Harvey) was that Marx's lines about grave digging were not about diminishing returns to capital, but instead were about literal graves. Marx wrote about power, exploitation, class consciousness, and violent revolution. So, I always thought Marx's "grave" references were literal, in the sense that the bourgeoisie would face a literal violent revolution that they instigated through the creation of extreme inequality and exploitation, resulting in their deaths and subsequent interment in graves. But maybe my reading habits just skew a little darker than Piketty's.
+        </p>
+
+        <h2>Debt aversion</h2>
+        <p>
+            Something that I found fascinating and wanted more of was Piketty's commentary on the social-political perception and aversion to debt in the EU vs. US. He glancingly referenced how historical episodes of sovereign default, inflation, and reconstruction shaped each region's collective memory and drove a severe aversion to debt in the EU. Something about social consciousness and historical memory's influence on modern fiscal policy was interesting and a fresh perspective for me, especially in the context of the many debt crises that parts of the EU have faced since the Great Recession. But, this wasn't explored in-depth.
+        </p>
+
+        <h2>My policy appetite</h2>
+        <p>
+            Eventually, we get to Piketty's prescription to reduce the cartoonishly bad wealth inequality we see today: a progressive global wealth tax with rates up to ten percent on the largest fortunes, combined with international financial transparency.
+        </p>
+        <p>
+            The r &gt; g framework is descriptive. A wealth tax would be corrective. But while we get to deeply understand Austen's and her characters' thoughts around the base level of fortune needed to generate a comfortable daily life from capital returns, what I just summarized already above is basically all we get on the policy front. Thus, I was left unsatisfied in terms of solutions or recommendations.
+        </p>
+
+        <h2>Closing thoughts</h2>
+        <p>
+            <em>Capital in the 21st Century</em> is valuable. It quantifies and gives historical data to show what many people intuitively sense: the world is unequal, the system tilts toward returns to capital, and inequality is growing as a result. The r &gt; g framework gives language and evidence for the structural cause. The insight is that the mid-20th century, when the labor-income ratio was relatively good and inequality was relatively low, is a historical outlier.
+        </p>
+        <p>
+            The book's main contribution, the new data showing the full history of r &gt; g could be shared in a heavily abridged fashion. The literary references to Austen and Balzac are intriguing at first, then exhausting, then interesting again, though only in the way that one gets that sense of uneasy fascination when watching something you know is actually kind of disgusting, but is instead transfixing for some reason. Finally, the policy prescription felt underdeveloped and under-explored.
+        </p>
+        <p>
+            If you're looking for more ways to explain inequality, and economic-historical context of inequality, this is a great read. If you're looking for Marx's continuation of Capital into the 21st century, or a policy exploration of what reducing inequality could look like with case examples, this isn't it.
+        </p>
+        <p>
+            I wish I left the book with a hopeful outlook. Instead, I found myself hoping we never face the type of catastrophic shocks from two world wars that led to an inequality-reducing labor-income ratio. So, I will keep looking for other economic writeups, ideally with concrete recommendations, modern policy examples, and data-backed solutions to help me feel better about the prospect of reducing today's inequality.
+        </p>
+
+        <p class="mt-12">
+            <a href="../index.html#writing" class="text-accent hover:text-primary-dark font-semibold">
+                <i class="fas fa-arrow-left mr-1 text-xs"></i> Back to Writing Section
+            </a>
+        </p>
+
+    </main>
+
+    <footer style="background-color: #00022b;" class="text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <a href="../index.html" class="text-xl font-bold">Mark Maples</a>
+                    <div class="mt-2 text-gray-300">
+                        <a href="https://www.linkedin.com/in/mark-maples-5b9bb813/" target="_blank" class="inline-flex items-center hover:text-primary-light transition-colors">
+                            <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row md:space-x-8 text-center md:text-right">
+                    <a href="../index.html#about" class="hover:text-primary-light mb-2 md:mb-0 transition-colors">About</a>
+                    <a href="../index.html#work-history" class="hover:text-primary-light mb-2 md:mb-0 transition-colors">Work History</a>
+                    <a href="../index.html#writing" class="hover:text-primary-light mb-2 md:mb-0 transition-colors">Writing</a>
+                </div>
+            </div>
+            <hr class="border-gray-700 my-4">
+            <div class="text-center text-gray-400 text-sm">
+                <p>© <span id="current-year"></span> Mark Maples. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuIcon = mobileMenuButton.querySelector('i');
+
+            mobileMenuButton.addEventListener('click', function() {
+                const isHidden = mobileMenu.classList.toggle('hidden');
+                mobileMenuIcon.classList.toggle('fa-bars', isHidden);
+                mobileMenuIcon.classList.toggle('fa-times', !isHidden);
+            });
+
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuIcon.classList.remove('fa-times');
+                    mobileMenuIcon.classList.add('fa-bars');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
